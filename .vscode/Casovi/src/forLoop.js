@@ -8,3 +8,8 @@ for(let i=0; i<workingDays.length; i++){
     console.log(`index: ${i}`);
     console.log(`days: ${workingDays[i]}`);
 }
+
+console.log ( "====FOR OF====")
+for(let days of workingDays){
+    console.log(days);
+}
