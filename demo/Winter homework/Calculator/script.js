@@ -25,9 +25,10 @@ function appendOperator(op) {
     operator = op;
     currentInput = '';
 }
-function appendNumber(number) { 
-    if (currentInput.length >= 14) { display.textContent = 'Error: Max 14 digits'; return; } 
-    currentInput += number; display.textContent = currentInput; }
+function appendNumber(number) {
+    if (currentInput.length >= 14) { display.textContent = 'Error: Max 14 digits'; return; }
+    currentInput += number; display.textContent = currentInput;
+}
 
 function calculate() {
     if (firstOperand === null || currentInput === '') return;

@@ -39,16 +39,17 @@ button {
     background-color: #f0f0f0;
     cursor: pointer;
 }
+
 .C-button {
-   
-    font-size: 30px; 
+
+    font-size: 30px;
     padding: 10px 20px;
     width: 100%;
     border: none;
     border-radius: 5px;
     background-color: cyan;
     cursor: pointer;
-    
+
 }
 
 button:hover {
