@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+</head>
+<body>
+    <nav>
+        <img src="sun-logo.png" alt="Sun Logo" style="width: 50px;">
+        <span>Weather App</span>
+        <ul>
+            <li><a href="#" onclick="showPage('home')">Home</a></li>
+            <li><a href="#" onclick="showPage('hourly')">Hourly Weather</a></li>
+            <li><a href="#" onclick="showPage('about')">About</a></li>
+            <li><a href="#" onclick="showPage('contact')">Contact Info</a></li>
+        </ul>
+    </nav>
+
+    <div id="home" class="page">
+        <h1>Welcome to the Weather App</h1>
+        <p>Here you can find the latest weather statistics and forecasts.</p>
+        <h2>Statistics</h2>
+        <p>Temperature: Highest, Average, Lowest</p>
+        <p>Humidity: Highest, Average, Lowest</p>
+        <p>Warmest and Coldest time of the days ahead</p>
+    </div>
+
+    <div id="hourly" class="page" style="display: none;">
+        <h1>Hourly Weather</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Icon</th>
+                    <th>Description</th>
+                    <th>Date and Time</th>
+                    <th>Temperature</th>
+                    <th>Humidity</th>
+                    <th>Wind Speed</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Hourly weather data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <div id="about" class="page" style="display: none;">
+        <h1>About</h1>
+        <p>Text about the app</p>
+        <p>Text about the creator</p>
+    </div>
+
+    <div id="contact" class="page" style="display: none;">
+        <h1>Contact Info</h1>
+        <p>Email: example@example.com</p>
+        <p>Phone: 123-456-7890</p>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.style.display = 'none';
+            });
+            document.getElementById(pageId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
