@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Text Size and Color</title>
+</head>
+<body>
+    <h1 id="header">Hello, World!</h1>
+    <input type="number" id="textSizeInput" placeholder="Enter text size (e.g., 24)">
+    <input type="text" id="colorInput" placeholder="Enter color (e.g., red)">
+    <button onclick="changeHeader()">Change Header</button>
+
+    <script>
+        const changeTextColor = (element, color = 'black') => {
+            element.style.color = color;
+        };
+
+        const changeTextSize = (element, textSize = 24) => {
+            element.style.fontSize = `${textSize}px`;
+        };
+
+        function changeHeader() {
+            const header = document.getElementById('header');
+            const textSizeInput = document.getElementById('textSizeInput').value;
+            const colorInput = document.getElementById('colorInput').value;
+
+            changeTextSize(header, textSizeInput || 24);
+            changeTextColor(header, colorInput || 'black');
+        }
+    </script>
+</body>
+</html>
