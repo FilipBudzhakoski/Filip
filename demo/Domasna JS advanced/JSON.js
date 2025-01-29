@@ -13,7 +13,7 @@ const fetchStudentData = () => {
             const femaleStudentsOver24 = students.filter(student => student.gender === 'Female' && student.age > 24);
             const averageGradeFemaleOver24 = femaleStudentsOver24.reduce((sum, student) => sum + student.averageGrade, 0) / femaleStudentsOver24.length;
             console.log('Average grade of female students over 24:', averageGradeFemaleOver24);
-            const maleStudentsWithB = students.filter(student => student.gender === 'Male' && student.name.startsWith('B') && student.averageGrade > 2);
+            const maleStudentsWithB = students.filter(student => student.gender === 'Male' && student.name && typeof student.name === 'string' && student.name.startsWith('B') && student.averageGrade > 2);
             console.log('Male students with a name starting with B and average grade over 2:', maleStudentsWithB);
             studentDataDiv.innerHTML = `
                 <h2>Results</h2>
