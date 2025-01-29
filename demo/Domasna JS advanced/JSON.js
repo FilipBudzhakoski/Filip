@@ -3,6 +3,7 @@ const fetchStudentData = () => {
         .then(response => response.json())
         .then(data => {
             const students = data;
+            console.log('Fetched students:', students); // Debugging log
             const studentDataDiv = document.getElementById('studentData');
             const highGradeStudents = students.filter(student => student.averageGrade > 3);
             console.log('Students with an average grade higher than 3:', highGradeStudents);
