@@ -3,18 +3,21 @@ const fetchStudentData = () => {
         .then(response => response.json())
         .then(data => {
             const students = data;
-            console.log('Fetched students:', students); // Debugging log
+            console.log('Fetched students:', students); 
             const studentDataDiv = document.getElementById('studentData');
             const highGradeStudents = students.filter(student => student.averageGrade > 3);
             console.log('Students with an average grade higher than 3:', highGradeStudents);
-            const femaleStudentsWithGrade5 = students.filter(student => student.gender === 'Female' && student.averageGrade === 5).map(student => student.name);
+            const femaleStudentsWithGrade5 = students.filter(student => student.gender === 'Female' && student.averageGrade === 5).map(student => {
+                console.log('Female student:', student); 
+                return `${student.firstName} ${student.lastName}`;
+            });
             console.log('Female students with an average grade of 5:', femaleStudentsWithGrade5);
             const maleStudentsInSkopjeOver18 = students.filter(student => student.gender === 'Male' && student.city === 'Skopje' && student.age > 18).map(student => `${student.firstName} ${student.lastName}`);
             console.log('Male students in Skopje over 18:', maleStudentsInSkopjeOver18);
             const femaleStudentsOver24 = students.filter(student => student.gender === 'Female' && student.age > 24);
             const averageGradeFemaleOver24 = femaleStudentsOver24.reduce((sum, student) => sum + student.averageGrade, 0) / femaleStudentsOver24.length;
             console.log('Average grade of female students over 24:', averageGradeFemaleOver24);
-            const maleStudentsWithB = students.filter(student => student.gender === 'Male' && student.name && typeof student.name === 'string' && student.name.startsWith('B') && student.averageGrade > 2);
+            const maleStudentsWithB = students.filter(student => student.gender === 'Male' && student.firstName && typeof student.firstName === 'string' && student.firstName.startsWith('B') && student.averageGrade > 2);
             console.log('Male students with a name starting with B and average grade over 2:', maleStudentsWithB);
             studentDataDiv.innerHTML = `
                 <h2>Results</h2>
