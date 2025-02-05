@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries</title>
+</head>
+<body>
+    <script src="Countries.js"></script>
+<div>
+    <input type="text" id="input1" placeholder="Enter first value">
+    <button onclick="showResult1()">Show Result 1</button>
+    <p id="result1"></p>
+</div>
+<div>
+    <input type="text" id="input2" placeholder="Enter second value">
+    <button onclick="showResult2()">Show Result 2</button>
+    <p id="result2"></p>
+</div>
+
+<script>
+    function showResult1() {
+        var input1 = document.getElementById('input1').value;
+        document.getElementById('result1').innerText = input1;
+    }
+
+    function showResult2() {
+        var input2 = document.getElementById('input2').value;
+        document.getElementById('result2').innerText = input2;
+    }
+</script>
+</body>
+</html>
