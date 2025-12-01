@@ -25,4 +25,41 @@ A fullstack car diagnostic platform that connects to vehicles via OBD-II or EV A
 
 ---
 
-## 📂 Project Structure
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v18+)
+- Python (3.10+)
+- PostgreSQL
+- Redis
+- OBD-II dongle or EV API access
+
+### Installation
+```bash
+# Clone the repo
+git clone https://github.com/your-username/car-diagnostic.git
+
+# Install frontend dependencies
+cd car-diagnostics-next
+npm install
+
+# Install backend dependencies
+cd backend
+npm install
+
+# Install AI microservice dependencies
+cd ai-service
+pip install -r requirements.txt
+
+# Start frontend
+npm run dev
+
+# Start backend
+npm start
+
+# Start AI microservice
+uvicorn predict:app --reload
+
