@@ -1,80 +1,28 @@
-car-diagnostics-next/
-├── app/
-│   ├── page.js            # Home page
-│   ├── vin/page.js        # VIN lookup page
-│   ├── diagnostics/page.js# Diagnostics page
-│   ├── ai/page.js         # AI predictions page
-├── components/
-│   ├── Navbar.js
-│   ├── VehicleSpecs.js
-│   ├── Diagnostics.js
-│   └── Predictions.js
-├── styles/
-│   └── globals.css
-├── package.json
-└── README.md
+# 🚗 Car Diagnostic App
 
+A fullstack car diagnostic platform that connects to vehicles via OBD-II or EV APIs, collects real-time data, and provides predictive maintenance insights using AI.
 
-                ┌─────────────────────────────┐
-                │         Frontend             │
-                │  React / Next.js Dashboard   │
-                │  - Vehicle health status     │
-                │  - Error codes & alerts      │
-                │  - Service booking UI        │
-                └───────────────▲─────────────┘
-                                │
-                                │ REST/GraphQL API
-                                │
-                ┌───────────────┴─────────────┐
-                │          Backend             │
-                │ Node.js / NestJS / ASP.NET   │
-                │ - User auth & subscriptions  │
-                │ - Vehicle data endpoints     │
-                │ - Notifications (email/SMS)  │
-                └───────────────▲─────────────┘
-                                │
-                                │
-                ┌───────────────┴─────────────┐
-                │        Database Layer        │
-                │ PostgreSQL (structured data) │
-                │ Redis (real-time caching)    │
-                └───────────────▲─────────────┘
-                                │
-                                │
-                ┌───────────────┴─────────────┐
-                │        AI Microservice       │
-                │ Python (FastAPI)             │
-                │ - Predictive maintenance     │
-                │ - Error code analysis        │
-                └───────────────▲─────────────┘
-                                │
-                                │
-                ┌───────────────┴─────────────┐
-                │   Hardware Integration       │
-                │ OBD-II dongle / EV API       │
-                │ - Collect real-time data     │
-                │ - Send JSON to backend       │
-                └─────────────────────────────┘
-from fastapi import FastAPI
-from pydantic import BaseModel
-import random
+---
 
-app = FastAPI()
+## ✨ Features
+- **Vehicle Data Collection**: Reads OBD-II error codes, mileage, and real-time parameters.
+- **Dashboard UI**: Modern React/Next.js interface for vehicle health, error codes, and alerts.
+- **AI Predictions**: Python FastAPI microservice for predictive maintenance (e.g., brake pad wear, catalytic converter efficiency).
+- **Service Booking**: Integrated UI for scheduling service appointments.
+- **Notifications**: Email/SMS alerts for critical issues.
+- **Database Layer**: PostgreSQL for structured data + Redis for caching.
 
-class VehicleData(BaseModel):
-    mileage: int
-    error_codes: list
+---
 
-@app.post("/predict")
-def predict_maintenance(data: VehicleData):
-    # Simple predictive logic (replace with ML later)
-    prediction = "No immediate issues"
-    if data.mileage > 100000:
-        prediction = "Brake pads likely need replacement soon"
-    if "P0420" in data.error_codes:  # Example OBD-II code
-        prediction = "Catalytic converter efficiency below threshold"
+## 🛠️ Tech Stack
+| Layer              | Technology |
+|--------------------|------------|
+| Frontend           | React, Next.js |
+| Backend            | Node.js, NestJS, ASP.NET |
+| Database           | PostgreSQL, Redis |
+| AI Microservice    | Python (FastAPI) |
+| Hardware           | OBD-II dongle / EV API |
 
-    return {
-        "prediction": prediction,
-        "confidence": round(random.uniform(0.7, 0.95), 2)
-    }
+---
+
+## 📂 Project Structure
