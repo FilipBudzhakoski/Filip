@@ -1,0 +1,11 @@
+{
+  "vins": [
+    { "vin": "1HGCM82633A004352", "make": "Toyota", "model": "Corolla", "year": 2018 }
+  ],
+  "diagnostics": [
+    { "id": 1, "status": "OK", "issues": [] }
+  ],
+  "predictions": [
+    { "id": 1, "risk": "Low", "recommended": "No immediate action" }
+  ]
+}

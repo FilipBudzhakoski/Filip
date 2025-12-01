@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Car Diagnostic 🚗</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/Carlogo.png" />
+</head>
+<body class="bg-light">
+  <div class="container py-4">
+    <h1 class="text-center mb-4">Car Diagnostic 🚗</h1>
+
+    <!-- 🔍 VIN Lookup -->
+    <div class="card mb-4">
+      <div class="card-header">Lookup Car by VIN</div>
+      <div class="card-body">
+        <form id="vinForm" class="input-group">
+          <input id="vinInput" class="form-control" placeholder="Enter VIN to lookup" required />
+          <button id="vinLookupBtn" type="submit" class="btn btn-primary">Lookup VIN</button>
+        </form>
+        <div id="vinResult" class="mt-3 position-relative">
+          <div id="vinSpinner" class="d-none text-center">
+            <div class="spinner-border text-primary" role="status"></div>
+            <p class="mt-2">Looking up VIN...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ➕ Manual Entry -->
+    <div class="card mb-4">
+      <div class="card-header">Add Car Manually</div>
+      <div class="card-body">
+        <form id="addCarForm" class="row g-2">
+          <div class="col-md-4"><input id="vinInput" class="form-control" placeholder="VIN" required /></div>
+          <div class="col-md-4"><input id="makeInput" class="form-control" placeholder="Make" required /></div>
+          <div class="col-md-4"><input id="modelInput" class="form-control" placeholder="Model" required /></div>
+          <div class="col-md-3"><input id="yearInput" type="number" class="form-control" placeholder="Year" required /></div>
+          <div class="col-md-5"><input id="engineInput" class="form-control" placeholder="Engine" required /></div>
+          <div class="col-md-4"><input id="mileageInput" type="number" class="form-control" placeholder="Mileage" required /></div>
+          <div class="mt-3">
+            <button id="addCarBtn" type="submit" class="btn btn-success">Add Car</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- 🔄 Car List -->
+    <div class="card mb-4">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <span>Car List</span>
+        <button id="refreshBtn" class="btn btn-outline-secondary btn-sm">Refresh List</button>
+      </div>
+      <div class="card-body position-relative" id="carsList">
+        <div id="carsSpinner" class="d-none text-center">
+          <div class="spinner-border text-primary" role="status"></div>
+          <p class="mt-2">Loading cars...</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🔧 Diagnostics -->
+    <div class="card mb-4">
+      <div class="card-header">Diagnostics</div>
+      <div class="card-body">
+        <button id="btnDiagnostics" class="btn btn-warning">Run Diagnostics</button>
+        <div id="diagResult" class="mt-3 position-relative">
+          <div id="diagSpinner" class="d-none text-center">
+            <div class="spinner-border text-warning" role="status"></div>
+            <p class="mt-2">Running diagnostics...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🤖 AI Prediction -->
+    <div class="card mb-4">
+      <div class="card-header">AI Prediction</div>
+      <div class="card-body">
+        <button id="btnAI" class="btn btn-info">Run AI Analysis</button>
+        <div id="aiResult" class="mt-3 position-relative">
+          <div id="aiSpinner" class="d-none text-center">
+            <div class="spinner-border text-info" role="status"></div>
+            <p class="mt-2">Analyzing with AI...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Edit Car Modal -->
+<div class="modal fade" id="editCarModal" tabindex="-1" aria-labelledby="editCarLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="editCarForm">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editCarLabel">Edit Car</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+       <div class="modal-body">
+  <div id="editAlert"></div> <!-- feedback area -->
+  <input type="hidden" id="editVin" />
+  <div class="mb-2"><input id="editMake" class="form-control" placeholder="Make" required></div>
+  <div class="mb-2"><input id="editModel" class="form-control" placeholder="Model" required></div>
+  <div class="mb-2"><input id="editYear" type="number" class="form-control" placeholder="Year" required></div>
+  <div class="mb-2"><input id="editEngine" class="form-control" placeholder="Engine"></div>
+  <div class="mb-2"><input id="editMileage" type="number" class="form-control" placeholder="Mileage"></div>
+</div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

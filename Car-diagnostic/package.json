@@ -1,0 +1,27 @@
+{
+  "name": "car-diagnostic",
+  "version": "1.0.0",
+  "description": "Car diagnostic project",
+  "main": "index.js",
+  "proxy": "http://localhost:5000",
+
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "node-fetch": "^3.3.2",
+    "pg": "^8.16.3"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
